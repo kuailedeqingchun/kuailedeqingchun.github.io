@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-31T01:19:29.747Z</updated>
+  <updated>2018-05-31T01:21:52.381Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/05/30/IOC%E4%B8%8EAOP/"/>
     <id>http://yoursite.com/2018/05/30/IOC与AOP/</id>
     <published>2018-05-30T09:56:57.830Z</published>
-    <updated>2018-05-31T01:19:29.747Z</updated>
+    <updated>2018-05-31T01:21:52.381Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC(控制反转)又称依赖注入，是整个spring的核心，贯穿始终。学过Java的都知道，当我们需要使用一个对象的时候，首先得new object(),<br>我们需要关注对象的生命周期，什么时候创建，什么时候销毁都得自己来维护，例如数据库的连接对象，如果我们忘记关闭会造成很严重的问题。<br>这时候IOC的优势就显示出来了，我们把对象放到IOC容器中，需要的时候直接拿来用，用完的时候什么也不用管，这样是不是很方便省心？再通俗<br>一点就好比找对象，传统方法是到处去找符合我们要求的妹子然后发展，现在IOC相当于一个婚介所，各种各样的妹子都在IOC容器中登记，然后我<br>把我们的条件告诉婚介所，然后婚介所找到符合条件的妹子自动匹配给我们。  </p><p>下面来通过代码理解一下Spring是怎么运行的    </p><pre><code>public static void main(String[] args) {           ApplicationContext context = new FileSystemXmlApplicationContext(                   &quot;applicationContext.xml&quot;);           Animal animal = (Animal) context.getBean(&quot;animal&quot;);           animal.say();       }  </code></pre><p>这段代码大家应该都很熟悉吧，一步步讲解，先来看看 applicationContext.xml  </p><pre><code>&lt;bean id=&quot;animal&quot; class=&quot;phz.springframework.test.Cat&quot;&gt;           &lt;property name=&quot;name&quot; value=&quot;kitty&quot; /&gt;   &lt;/bean&gt;  </code></pre><p>一个animal的实现类  </p>]]></content>
+    <content type="html"><![CDATA[<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC(控制反转)又称依赖注入，是整个spring的核心，贯穿始终。学过Java的都知道，当我们需要使用一个对象的时候，首先得new object(),<br>我们需要关注对象的生命周期，什么时候创建，什么时候销毁都得自己来维护，例如数据库的连接对象，如果我们忘记关闭会造成很严重的问题。<br>这时候IOC的优势就显示出来了，我们把对象放到IOC容器中，需要的时候直接拿来用，用完的时候什么也不用管，这样是不是很方便省心？再通俗<br>一点就好比找对象，传统方法是到处去找符合我们要求的妹子然后发展，现在IOC相当于一个婚介所，各种各样的妹子都在IOC容器中登记，然后我<br>把我们的条件告诉婚介所，然后婚介所找到符合条件的妹子自动匹配给我们。  </p><p>下面来通过代码理解一下Spring是怎么运行的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;   </span><br><span class="line">        ApplicationContext context = new FileSystemXmlApplicationContext(   </span><br><span class="line">                &quot;applicationContext.xml&quot;);   </span><br><span class="line">        Animal animal = (Animal) context.getBean(&quot;animal&quot;);   </span><br><span class="line">        animal.say();   </span><br><span class="line">    &#125;  </span><br><span class="line">```  </span><br><span class="line">这段代码大家应该都很熟悉吧，一步步讲解，先来看看 applicationContext.xml  </span><br><span class="line">```  </span><br><span class="line">&lt;bean id=&quot;animal&quot; class=&quot;phz.springframework.test.Cat&quot;&gt;   </span><br><span class="line">        &lt;property name=&quot;name&quot; value=&quot;kitty&quot; /&gt;   </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">```  </span><br><span class="line">一个animal的实现类</span><br></pre></td></tr></table></figure></p><p>public class Cat implements Animal {<br>    private String name;<br>    public void say() {<br>        System.out.println(“I am “ + name + “!”);<br>    }<br>    public void setName(String name) {<br>        this.name = name;<br>    }<br>}<br><code>`</code><br>Animal接口</p>]]></content>
     
     <summary type="html">
     
